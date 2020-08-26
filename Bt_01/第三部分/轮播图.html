@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    	<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>轮播图</title>
+		<!--<link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css">-->
+		<link rel="stylesheet" href="../css/bootstrap.css" />
+		<style>
+			#pic {
+				width: 900px;
+				margin: 0 auto;
+			}
+		</style>
+	</head>
+	<body>
+		<!--
+			1.写一个父级，放一个id，和一个carousel的class
+			  slide 					给图片添加运动的效果
+			  data-interval="500"		间隔时间，不要低于400，容易出现问题
+			  data-ride="carousel"		页面一加载后就开始播放
+			2.小圆点的内容要放在一个class为carousel-indicators的层里
+			3.图片内容区域要放在一个class为carousel-inner的层里
+			4.每一项内容都需要放到一个叫item的层里
+			    这个里面也可以放文字，那需要有一个父级，父级的class为carousel-caption
+			5.左右按钮按以下的格式写，href里面的值要与父级的id一样
+				<a href="#pic" class="carousel-control left" data-slide="prev">&lsaquo;</a>
+				<a href="#pic" class="carousel-control right" data-slide="next">&rsaquo;</a>
+		-->
+		<div class="container">
+			<div id="pic" class="carousel slide" data-interval="2000" data-ride="carousel">
+				<!--小圆点-->
+				<ol class="carousel-indicators">
+					<li class="active"></li>
+					<li></li>
+					<li></li>
+					<li></li>
+				</ol>
+				<!--轮播图的图片-->
+				<div class="carousel-inner">
+					<div class="item active">
+						<img src="../img/1.jpg" />
+						<div class="carousel-caption">
+							<h3>这里是标题1</h3>
+							<p>这里是内容，非常多非常多</p>
+						</div>
+					</div>
+					<div class="item">
+						<img src="../img/2.jpg" />
+						<div class="carousel-caption">
+							<h3>这里是标题2</h3>
+							<p>这里是内容，非常多非常多</p>
+						</div>
+					</div>
+					<div class="item">
+						<img src="../img/3.jpg" />
+						<div class="carousel-caption">
+							<h3>这里是标题3</h3>
+							<p>这里是内容，非常多非常多</p>
+						</div>
+					</div>
+					<div class="item">
+						<img src="../img/4.jpg" />
+						<div class="carousel-caption">
+							<h3>这里是标题4</h3>
+							<p>这里是内容，非常多非常多</p>
+						</div>
+					</div>
+				</div>
+				<!--左右按钮-->
+				<a href="#pic" class="carousel-control left" data-slide="prev">&lsaquo;</a>
+				<a href="#pic" class="carousel-control right" data-slide="next">&rsaquo;</a>
+				
+		</div>
+		
+		
+		<!--<script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
+		<script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>-->
+		<script type="text/javascript" src="../js/jquery.js" ></script>
+		<script type="text/javascript" src="../js/bootstrap.js" ></script>
+	</body>
+</html>

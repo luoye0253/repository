@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    	<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>输入框组</title>
+		<link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css">
+	</head>
+	<body>
+		<!--
+        	input-grouop			输入框组，只能针对输入框
+        	input-group-addon		给输入框前后添加的额外元素
+        	input-group-*			修改输入框组的尺寸,只有lg,md,sm
+        -->
+		<div class="container">
+			<div class="row">
+				<div class="input-group">
+					<span class="input-group-addon">@</span>
+					<input type="text" class="form-control" />
+				</div>
+			</div>
+			
+			<!--输入组的尺寸-->
+			<div class="row" style="margin-top: 10px;">
+				<div class="input-group input-group-lg">
+					<span class="input-group-addon">@</span>
+					<input type="text" class="form-control" />
+				</div>
+			</div>
+			<div class="row" style="margin-top: 10px;">
+				<div class="input-group input-group-md">
+					<span class="input-group-addon">@</span>
+					<input type="text" class="form-control" />
+				</div>
+			</div>
+			<div class="row" style="margin-top: 10px;">
+				<div class="input-group input-group-sm">
+					<span class="input-group-addon">@</span>
+					<input type="text" class="form-control" />
+				</div>
+			</div>
+			
+			<!--额外内容里放的是checkbox-->
+			<div class="row" style="margin-top: 10px;">
+				<div class="input-group">
+					<span class="input-group-addon">
+						<input type="checkbox" />
+					</span>
+					<input type="text" class="form-control" />
+				</div>
+			</div>
+			
+			<!--额外内容里放的是radio-->
+			<div class="row" style="margin-top: 10px;">
+				<div class="input-group">
+					<span class="input-group-addon">
+						<input type="radio" />
+					</span>
+					<input type="text" class="form-control" />
+				</div>
+			</div>
+			
+			<!--额外内容里放的是按钮-->
+			<div class="row" style="margin-top: 10px;">
+				<div class="input-group">
+					<input type="text" class="form-control" />
+					<span class="input-group-btn">
+						<button type="button" class="btn btn-default">搜索</button>
+					</span>
+				</div>
+			</div>
+			
+			<!--额外内容里放的是按钮组-->
+			<div class="row" style="margin-top: 10px;">
+				<div class="input-group">
+					<div class="input-group-btn">
+						<button class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+						海棠学院课程 <span class="caret"></span></button>
+						<ul class="dropdown-menu">
+							<li><a href="#">html</a></li>
+							<li><a href="#">css</a></li>
+							<li><a href="#">bootstrap</a></li>
+							<li><a href="#">javascript</a></li>
+							<li><a href="#">less</a></li>
+						</ul>
+					</div>
+					<input type="text" class="form-control" />
+				</div>
+			</div>
+		</div>
+		
+		<script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
+		<script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+	</body>
+</html>

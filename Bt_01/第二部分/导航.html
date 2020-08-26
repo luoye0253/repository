@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    	<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>导航</title>
+		<!--<link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css">-->
+		<link rel="stylesheet" href="../css/bootstrap.css" />
+		<link rel="stylesheet" href="../css/base.css" />
+	</head>
+	<body>
+		<!--
+			nav			导航的基础样式
+		-->
+		<div class="container">
+			<div class="row">
+				<ul class="nav nav-tabs">
+					<li><a href="#">海棠学院</a></li>
+					<li class="active"><a href="#">碎花</a></li>
+					<li><a href="#">Laiyl</a></li>
+				</ul>
+			</div>
+			
+			<!--胶囊式 nav-pills-->
+			<div class="row" style="margin-top: 10px;">
+				<ul class="nav nav-pills">
+					<li><a href="#">海棠学院</a></li>
+					<li class="active"><a href="#">碎花</a></li>
+					<li><a href="#">Laiyl</a></li>
+				</ul>
+			</div>
+			
+			<!--竖着排 nav-stacked-->
+			<div class="row" style="margin-top: 10px;">
+				<ul class="nav nav-pills nav-stacked">
+					<li><a href="#">海棠学院</a></li>
+					<li class="active"><a href="#">碎花</a></li>
+					<li><a href="#">Laiyl</a></li>
+				</ul>
+			</div>
+			
+			<!--两端对齐 nav-justified-->
+			<div class="row" style="margin-top: 10px;">
+				<ul class="nav nav-pills nav-justified">
+					<li><a href="#">海棠学院</a></li>
+					<li class="active"><a href="#">碎花</a></li>
+					<li><a href="#">Laiyl</a></li>
+				</ul>
+			</div>
+			
+			<!--导航中放下拉菜单-->
+			<div class="row" style="margin-top: 10px;">
+				<ul class="nav nav-tabs">
+					<li><a href="#">海棠学院</a></li>
+					<li class="active"><a href="#">碎花</a></li>
+					<li><a href="#">Hello</a></li>
+					<li>
+						<a href="#" data-toggle="dropdown">
+						海棠学院课程 <span class="caret"></span></a>
+						<ul class="dropdown-menu">
+							<li><a href="#">html</a></li>
+							<li><a href="#">css</a></li>
+							<li><a href="#">bootstrap</a></li>
+							<li><a href="#">javascript</a></li>
+							<li><a href="#">less</a></li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+		</div>
+		
+		<!--<script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
+		<script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>-->
+		<script type="text/javascript" src="../js/jquery.js" ></script>
+		<script type="text/javascript" src="../js/bootstrap.js" ></script>
+	</body>
+</html>

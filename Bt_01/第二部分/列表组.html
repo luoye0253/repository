@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    	<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>列表组</title>
+		<link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css">
+	</head>
+	<body>
+		<!--
+        	list-group
+        	list-group-item
+        -->
+		<div class="container">
+			<div class="row">
+				<ul class="list-group">
+					<li class="list-group-item">html5</li>
+					<li class="list-group-item">css3</li>
+					<li class="list-group-item">less</li>
+					<li class="list-group-item">bootstrap</li>
+					<li class="list-group-item">javascript</li>
+				</ul>
+			</div>
+			
+			<!--列表：给每个列表项添加了一个标记，那这个标记就会自动跑到右侧-->
+			<div class="row">
+				<ul class="list-group">
+					<li class="list-group-item">html5<span class="badge">12</span></li>
+					<li class="list-group-item">css3<span class="badge">20</span></li>
+					<li class="list-group-item">less<span class="badge">50</span></li>
+					<li class="list-group-item">bootstrap<span class="badge">32</span></li>
+					<li class="list-group-item">javascript<span class="badge">22</span></li>
+				</ul>
+			</div>
+			
+			<!--用a标签做的列表组，可以添加激活状态，禁用状态，背景色-->
+			<div class="row">
+				<div class="list-group">
+					<a href="#" class="list-group-item list-group-item-heading">html5<span class="badge">12</span></a>
+					<a href="#" class="list-group-item list-group-item-info">css3<span class="badge">20</span></a>
+					<a href="#" class="list-group-item list-group-item-danger">less<span class="badge">50</span></a>
+					<a href="#" class="list-group-item list-group-item-warning">bootstrap<span class="badge">32</span></a>
+					<a href="#" class="list-group-item list-group-item-success">javascript<span class="badge">22</span></a>
+				</div>
+			</div>
+			
+			<!--
+				添加标题与段落的列表组
+				list-group-item-heading			列表组标题
+				list-group-item-text			列表组内容
+			-->
+			<div class="row">
+				<ul class="list-group">
+					<li class="list-group-item active">
+						<h4 class="list-group-item-heading">海棠学院</h4>
+						<p>专注前端培训专注前端培训专注前端培训专注前端培训专注前端培训专注前端培训</p>
+					</li>
+					<li class="list-group-item">
+						<h4 class="list-group-item-heading">海棠学院</h4>
+						<p class="list-group-item-text">专注前端培训专注前端培训专注前端培训专注前端培训专注前端培训专注前端培训</p>
+					</li>
+					<li class="list-group-item">
+						<h4 class="list-group-item-heading">海棠学院</h4>
+						<p class="list-group-item-text">专注前端培训专注前端培训专注前端培训专注前端培训专注前端培训专注前端培训</p>
+					</li>
+					<li class="list-group-item">
+						<h4 class="list-group-item-heading">海棠学院</h4>
+						<p class="list-group-item-text">专注前端培训专注前端培训专注前端培训专注前端培训专注前端培训专注前端培训</p>
+					</li>
+					<li class="list-group-item">html5</li>
+					<li class="list-group-item">css3</li>
+					<li class="list-group-item">less</li>
+					<li class="list-group-item">bootstrap</li>
+					<li class="list-group-item">javascript</li>
+				</ul>
+			</div>
+		</div>
+		
+		<script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
+		<script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+	</body>
+</html>

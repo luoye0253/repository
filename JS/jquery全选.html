@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<!--
+	作者：2076592250@qq.com
+	时间：2018-04-02
+	描述：http://www.cnblogs.com/lk4525/p/6513924.html
+-->
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>jquery全选</title>
+	</head>
+	<body>
+		<form id="menuForm">
+			<!-- dom对table表格的兼容性不好 -->
+			<div id="menu">
+				<div>
+					<label><input id="chooseAll" type="checkbox" />全选</label>
+				</div>
+				<div>
+					<div>
+						<label><input type="checkbox" name="fruit" />苹果</label>
+						<label><input type="checkbox" name="fruit" />西瓜</label>
+						<label><input type="checkbox" name="fruit" />香蕉</label>
+					</div>
+					<div>
+						<label><input type="checkbox" name="fruit" />菠萝</label>
+						<label><input type="checkbox" name="fruit" />葡萄</label>
+						<label><input type="checkbox" name="fruit" />哈密瓜</label>
+					</div>
+				</div>
+			</div>
+		</form>
+		
+		<script src="js/jquery.js"></script>
+		<script type="text/javascript">
+			$(function(){
+				$('#chooseAll').click(function(){
+					/**
+					 * attr()与prop()的区别					 * 
+					 * 以前我们使用attr获取checked属性时返回"checked"和"",现在使用prop方法获取属性则统一返回true和false
+					 * 
+					 * 什么时候使用attr，什么时候使用prop？
+					 * 1.添加属性名称该属性就会生效应该使用prop.
+					   2.是有true,false两个属性使用prop.
+					   3.其他则使用attr
+					 */
+					
+					//prop('checked',value) ,第一个值获取属性，第二个值：设置属性值。prop只有一个参数时，表示获取元素属性。
+//					$("input[name='fruit']").prop('checked',$(this).prop('checked'));
+					$("input[name='fruit']").prop('checked', $(this).prop('checked'));
+				});
+				
+				$("input[name='fruit']").click(function(){
+					//each遍历每一个元素
+					$("input[name='fruit']").each(function(){
+						if(!$(this).prop('checked')) {
+							$('#chooseAll').prop('checked', false);
+							return false;
+						} else {
+							$('#chooseAll').prop('checked', true);
+							return true;
+						}
+					})
+				});
+			})
+		</script>
+	</body>
+</html>

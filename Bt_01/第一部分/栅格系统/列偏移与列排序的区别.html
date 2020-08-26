@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1" maximum-scale=1, user-scalable=no">
+		<meta charset="utf-8" />
+		<title>列偏移与列排序的区别</title>
+		<link rel="stylesheet" href="../../css/bootstrap.css" />
+	</head>
+	<style>
+		.row div {
+			background: green;
+			color: #fff;
+			height: 100px;
+			border: 1px solid #000;
+		}
+	</style>
+	<body>
+		<div class="container" style="border: 1px solid red;">
+			<!--
+				区别：
+				1.列偏移只能往右走，而列排序（pull、push）既可以往右边走也可以往左边走
+				2.offset当偏移量超出范围就会折行，而列排序不会有这个问题
+			-->
+			<div class="row">
+				<div class="col-lg-2 col-lg-offset-10">第1行第1列</div>
+			</div>
+			<div class="row">
+				<div class="col-lg-2 col-lg-push-10">第2行第1列</div>
+			</div>
+			<div class="row">
+				<div class="col-lg-2 col-lg-push-2">第3行第1列</div>
+			</div>
+			<!--第二个区别-->
+			<div class="row">
+				<div class="col-lg-4">第4行第1列</div>
+				<div class="col-lg-4 col-lg-offset-5">第4行第2列</div>
+			</div>
+			<div class="row">
+				<div class="col-lg-4">第5行第1列</div>
+				<div class="col-lg-4 col-lg-push-5">第5行第2列</div>
+			</div>
+		</div>
+		
+		<script src="../../js/jquery.js"></script>
+		<script type="text/javascript" src="../../js/bootstrap.js"></script>
+	</body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    	<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>表单</title>
+		<link rel="stylesheet" href="../../css/bootstrap.css" />
+	</head>
+	
+	<body>
+		<!--
+			form-control		让表单的宽度为100%，并且添加了一些其他的样式
+			form-group			给表单之间添加了一些距离
+			form-inline			让表单在一行中显示
+			form-horizontal		让表单能在一行中显示，并且能够改变form-group的样式
+			control-label		让label里的文字垂直居中对齐
+			checkbox			checkbox的样式设置
+		-->
+		<div class="container">
+			<div class="row">
+				<form action="#">
+					<div class="form-group">
+						<label for="userName">用户名</label>
+						<input type="text" id="userName" class="form-control" />
+					</div>
+					<div class="form-group">
+						<label for="password">密码</label>
+						<input type="password" id="password" class="form-control" />
+					</div>
+					<input type="button" value="登录" class="btn" />
+				</form>
+			</div>
+			
+			<div class="row" style="margin-top: 50px;">
+				<form action="#" class="form-inline">
+					<!--<div class="form-group">-->
+						<label for="userName">用户名</label>
+						<input type="text" id="userName" class="form-control" />
+					<!--</div>-->
+					<!--<div class="form-group">-->
+						<label for="password">密码</label>
+						<input type="password" id="password" class="form-control" />
+					<!--</div>-->
+					<input type="button" value="登录" class="btn" />
+				</form>
+			</div>
+			
+			<div class="row" style="margin-top: 50px;">
+				<form action="#" class="form-horizontal">
+					<div class="form-group">
+						<label for="userName" class="col-lg-1 control-label">用户名</label>
+						<div class="col-lg-11">
+							<input type="text" id="userName" class="form-control" />
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="password" class="col-lg-1 control-label">密码</label>
+						<div class="col-lg-11">
+							<input type="password" id="password" class="form-control" />
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="col-lg-1 col-lg-offset-1">
+							<!--<div class="checkbox">-->
+							<label><input type="checkbox" />记住我</label>
+							<!--</div>-->
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="col-lg-1 col-lg-offset-1">
+							<input type="button" value="登录" class="btn" />
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+		
+		<script src="../../js/jquery.js"></script>
+		<script type="text/javascript" src="../../js/bootstrap.js"></script>
+	</body>
+</html>
