@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    	<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>折叠菜单（一组）</title>
+		<!--<link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css">-->
+		<link rel="stylesheet" href="../css/bootstrap.css" />
+	</head>
+	<body>
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-5">
+					<!--1.把所有的面板都放到一个父级里，并且给父级添加一个panel-group的class，还有一个id-->
+					<div class="panel-group" id="accordion">
+						<div class="panel panel-default">
+							<div class="panel-heading">
+								<!--2.给要点击的元素添加一个data-parent熟属性，并且让它的值与父级的id一样-->
+								<h3 class="panel-title" data-parent="#accordion" data-toggle="collapse" data-target="#con1">海棠学院</h3>
+							</div>
+							<!--3.需要给内容区域添加一个为collapse的class-->
+							<div id="con1" class="in collapse">
+								<div class="panel-body">
+									专注前端培训专注前端培训专注前端培训专注前端培训专注前端培训专注前端培训专注前端培训
+								</div>
+							</div>
+						</div>
+					
+						<div class="panel panel-default">
+							<div class="panel-heading">
+								<h3 class="panel-title" data-parent="#accordion" data-toggle="collapse" data-target="#con2">海棠学院</h3>
+							</div>
+							<div id="con2" class="collapse">
+								<div class="panel-body">
+									专注前端培训专注前端培训专注前端培训专注前端培训专注前端培训专注前端培训专注前端培训
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		
+		<!--<script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
+		<script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>-->
+		<script type="text/javascript" src="../js/jquery.js" ></script>
+		<script type="text/javascript" src="../js/bootstrap.js" ></script>
+	</body>
+</html>

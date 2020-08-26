@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>index</title>
+		<style type="text/css">
+			.container {
+				margin: auto;
+				overflow: hidden;
+				padding-top: 20px;
+			}
+			.item1 {
+				background: #fff2df;
+				width: 100%;
+				height: 200px;
+			}
+			.item2 {
+				background: #e0f0e9;
+				width: 100%;
+				height: 200px;
+			}
+			
+			.title {
+				height: 1px;
+				background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(255, 117, 0, 0.75), rgba(0, 0, 0, 0));
+				color: #ff7500;
+				text-align: center;
+			}
+			.title span {
+				position: relative;
+				top: -10px;
+				background: #00000000;
+				background: #fff;
+				box-shadow: 0 2px 2px 0 #ff7500;
+				padding: 0 20px;
+			}
+			.box_01 {
+				background: orange; 
+				width: 100px; 
+				height: 100px;
+				font-size: 14px;
+			}
+			.box_02 {
+				background: aqua;
+				width: 150px; 
+				height: 150px;
+				font-size: 20px;
+			}
+			.skin_demo ul li {
+				list-style: none;
+				display: inline;
+			}
+			
+			a {
+				text-decoration: none;
+			}
+			.box {
+				background-color: salmon;
+				color: #fff;
+				width: 100%;
+				height: 150px;
+				padding: 10px;
+				overflow: hidden;
+				display: none;
+			}
+			#tabs div {
+				background-color: #fff;
+				cursor: pointer;
+				float: left;
+				text-align: center;
+				padding: 6px;
+				width: 100px;
+				height: 20px;
+			}
+			.active {
+				background: yellow !important;
+			}
+			
+			#scores div {
+				text-align: center;
+				float: left;
+				width: 200px;
+			}
+		</style>
+		<link id="link1" rel="stylesheet" href="css/style_01.css" />
+		<script type="text/javascript" src="js/scores.js"></script>
+		
+		<script type="text/javascript">
+			window.onload = function () { /* 匿名函数 */
+				var box2 = document.getElementById('box2');
+				/* 事件提取  不加括号！！ */
+				box2.onmouseover = toBlue;
+				box2.onmouseout = toOrange;
+				
+				/* 收缩展开 菜单列表 */
+				var btn = document.getElementById('btn');
+				var ul_input = document.getElementById('ul_input');
+				btn.onclick = function() {
+					if(ul_input.style.display == 'block') {
+						ul_input.style.display = 'none';
+					} else {
+						ul_input.style.display = 'block';
+					}
+				}
+				
+				/* 全选、不选、反选  */
+				var all = document.getElementById('selectAll');
+				var reverse = document.getElementById('selectReverse');
+				var select1Input = document.getElementsByName('ability');
+				var selectAll = function selectAll(flag) {
+					for(var i=0; i<select1Input.length; i++) {
+						select1Input[i].checked = flag;
+					}
+				}
+				for(var i=0; i<select1Input.length; i++) {
+					select1Input[i].onclick = function() {
+						//引入计数器
+						var sum = 0;
+						for(var j=0; j<select1Input.length; j++) {
+							if(select1Input[j].checked) {
+								sum += 1;
+								if(sum == select1Input.length) {
+									all.checked = true;
+								} else {
+									all.checked = false;
+								}
+							}
+						}
+					}
+				}
+				var selectReverse = reverse.onclick = function(){
+					for (var i=0; i<select1Input.length; i++) {
+						select1Input[i].checked= !select1Input[i].checked;
+					}
+				}
+				all.onclick = function() {
+					if(all.checked) {
+						selectAll(true);
+					}
+					if(!all.checked) {
+						selectAll(false);
+					}
+				}
+				
+				/* 活动Tabs */
+				var tabs = document.getElementById('tabs').getElementsByTagName('div');
+				var aDiv = document.getElementById('content').getElementsByTagName('div');
+//				alert(aDiv);
+				var i = 0;
+				for(i=0; i<tabs.length; i++) {
+					tabs[i].index = i;
+					tabs[i].onclick = function() {
+						for(i=0; i<tabs.length; i++) {
+							tabs[i].className = '';
+							aDiv[i].style.display = 'none';
+						}
+//						alert(this.index);
+						aDiv[this.index].style.display = 'block';
+						this.className = 'active';
+					}
+				}
+				
+			}
+			
+			/* 改变样式、尺寸 */
+			function toOrange() {
+				var orange = document.getElementById('box2');
+				orange.style.width = '100px';
+				orange.style.height = '100px';
+				orange.style.background = 'orange';
+			}
+			function toBlue() {
+				var orange = document.getElementById('box2');
+				orange.style.width = '150px';
+				orange.style.height = '150px';
+				orange.style.background = 'aqua';
+			}
+			
+			/* split()分隔   返回一个数组  */
+			function splitText() {
+//				var splitText = document.getElementById('split').innerHTML = "my favorite movies is comedies.";
+				var splitText = document.getElementById('split').innerHTML;
+				var split1 =  document.getElementById('split1').innerHTML = splitText.split('-');
+				var split2 =  document.getElementById('split2').innerHTML = splitText.split('');
+				var split3 =  document.getElementById('split3').innerHTML = splitText.split('', 3);
+			}
+			function resetText() {
+				var splitText = document.getElementById('split').innerHTML;
+//				var split1 =  document.getElementById('split1').innerHTML = splitText.replace('-', ' '); //只能替换单个
+				var split1 =  document.getElementById('split1').innerHTML = splitText.replace(/\-/g,' ');
+				var split2 =  document.getElementById('split2').innerHTML = split1;
+				var split3 =  document.getElementById('split3').innerHTML = split1;
+			}
+			
+			function testDiv1() {
+				var div = document.getElementById('boxStyle');
+				var opacity = 1;
+				var fader = setInterval(function() {
+				  opacity -= 0.1;
+				  if (opacity >= 0) {
+				    div.style.opacity = opacity;
+				  } else {
+				    clearInterval(fader);
+				  }
+				}, 100);
+			}
+		</script>
+	</head>
+	<body>
+		<div class="container">
+			<div class="item1">
+				<div class="title"><span>126记住密码提示框</span></div>
+				<div>
+					<label id="autoLogin" 
+						onmouseover="document.getElementById('tips').style.display='block';"
+						onmouseout="document.getElementById('tips').style.display='none';">
+						<input type="checkbox" />自动登录
+					</label>
+					<div id="tips">不要在网吧...</div>
+					<div><input type="button" value="登录" /></div>
+				</div>
+			</div>
+			<div class="item2">
+				<div class="title"><span>换class1</span></div>
+				<div>
+					<div id="box" class="box_01" onmouseover="document.getElementById('box').className='box_02';"
+						onmouseout="document.getElementById('box').className='box_01';">hello</div>
+				</div>
+			</div>
+			<div class="item1">
+				<div class="title"><span>换class2</span></div>
+				<div>
+					<div id="box2" class="box_01">hello</div>
+				</div>
+			</div>
+			<div class="item2">
+				<div class="title"><span>网页/div换肤</span></div>
+				<div class="skin_demo">
+					<ul>
+						<li><input type="button" style="background-color: skyblue;" value="蓝皮肤" onclick="document.getElementById('link1').href='css/style_01.css';" /></li>
+						<li><input type="button" style="background-color: greenyellow;" value="绿皮肤" onclick="document.getElementById('link1').href='css/style_02.css';" /></li>
+						<li><input type="button" style="background-color: red;" value="红皮肤" onclick="document.getElementById('link1').href='css/style_03.css';" /></li>
+					</ul>
+					<!-- 电影评分 -->
+					<div id="scores" style="padding: 20px 40px;">
+						<div>
+							<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAARESURBVGhD7Znba9NQHMf37F28/QuOsYtrk+EYFJIOhg6R6VQQ9iZ4e/MPUOg2L6Dgg4I+KDIRp4h/wtzEOadMH/Uf0HnBbenibGsbf9/sdLbp7zQnbdr50C98oCS/a87JyUna1FBDDdVPyd79u5OGPpg0tZFlU3u6bOqT9PsdWDb0FziGc5ahH4WtcPs/tBBr30bFnyfeJk09R8U7KsCWmpqBL2KIcPWX24CpX6GrbHGFBsLQljBSdW+Ikg/RVPlWUlDVaPPU0EmRpnb63t29mRp4yBcRIpTjayy2SaQNV0mjaw/N5zk2cQ3AAoGcIn04svo6dtFV+sQlrCmUE7lFGdUJ04muzgc2kQJ2v+bCnVMBq2Eo04xuwEdcAlXSV9tduHMBGBPlVCYKMOQJGAi7X3dyU80u+M3ZqFLxarbY07O92iU2PdruOLN7XfCbs1FHm6/oObP6sOMCqmEf1Jzc5GoTAL9xjLNVJWloo6I8NaHzap/YqZGOtSby4Bhnq4yhLwYaFex/2ECK2AcwGs0ljeAYznE+qlhm9Kwo0180rd5wQVRJJf7dG15wjvNRhabXa1Fmeblb8QC72ELsw5qzcqrTyU2UjkYenIMNbLkYftBsyVqxyE5RrlxkOMgFyIOp8Wso4vy+sM9diTJ3W53s8xYn91JevAz4wBcxEAsxEdtv+llm1xFRrlxYGThnl7juZO60skWFCXIgF1sDQTNmWJQrFxk+8ToWEdeczK3aNYPYyMHmzmPoj0W5ctGyO8U6F0JXK32zjS2kGhCz3EisQa/Noly56B55zzp7QTPXw2sGsZSaIKjGOVGuXDDinGWkr8mXWlUQg4stQ6kRpanlITVceTPw5WKWRWVqkWH5m11C5l7wBQA+XCxfVG52fM1gnX34M97CFlsO+HCx/KCplRDlykVGZR+IMri9lR/w4WL5ofRAxDty0C0KthtcoSoE3arQhc4umdoOUW550fSa4YLIWDndyRapAny5mDKokWlRpr/I+BwXREbqYum7B8AGMXWpw0W2kYQvF1OGZWpnRJn+cl+sDG2JC8SRuV28YmEziE1g4eYPv3HMu7mEb2EsHxYCv+7SqFxmArFkn4kV6xU1cKPNsQ/J5z3OwQa28IEvZ8ehtFn0SrzuznMBi6BtBb6SYLNnD0R5GwbYwge+KlsTauLLjz59iygvmPAJhgtaRB+9nxxTb8CL60sxuHOFJM3ocVFWZaIgY96g9YbekR6IcioXPlfS/TLLJagHeBQ4/ZENopzqtG4fsU39Y2gfsfNy/1bAf4F8wtDBLAi9ibwwzWhkav5HD61Q93O9bRtF2toJqxmWQ66IaqBR+Ewjf0KkqY/wnKGGRoLsAKQY+iI1kfgZj2wV4esvtyHamxHTRJYtlAG28MEn0HVtgBO+AFrx6AAVmKCrPE6jNYEFwl0k6DeO4RxslLfiDTXUUAhqavoLy0DbHDFMVm4AAAAASUVORK5CYII=">
+							<img src="data:image/png;base64,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">
+						</div>
+						<div style="width: 510px; height: 60px;">
+							<div style="font-family: '方正舒体'; font-size: 28px; margin-top: 15px; text-align: right; float: left;">评分：</div>
+							<div id="scores1" style="width: 300px; float: left; text-align: left; margin-top: 2px;">
+								<!--<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAATCSURBVGhD7VhLiBxVFG0liGJWggoSELFfVU0bIrozgqLBnS4DKrjUaMCVAd0IuhYkYBbZCoE4Pyfz7c8k6cmMmXT3MFFkcCEBEURFEQyJMl2fV57bc1/Nq6rXn4xdmW7oA4eZrndfvXPep+6tyo0wwgj7C1kTT/tF+zj/HF7IhlN0Z8Sf/HM4IWvWy2HDCZtfidBdFB/w5eFCGObukXWnoYw0p8VtXLuXm4cHYd0+TiYiI6C3KD7n5uFAWH3xgGzYPyaNNKeEi7b7OWzwIevWe8pEzAitykL+PIcNNuR3Rx7EavzWzkhzQgSyfOQRDh9c4IB/rJtIGQHdOXGJwwcT8nr+YeSNm92MbI8LGVYth7sNHrAap5MmTEaI3pz1LXcbLCD5PQEj270aIbpl8QJ3HxxgS50zmSCaTBDdC+In7r6/CKu5A27pyaP+svURViMwmSCaTLQ4LkJ/xTopN8cezzzrK7Hukn3KW7TOefOi4V7I/4rktq2LCi7aRhNEPU6nt2RFMbQtsao/4NE9g/8/kxv2CVkfO7Ynk/5F5/W4WCsmthuDqtmMKdab3zXRjTsm7a2YydpTL7HsNOSG9Xywat/yKzb2r2UU0JHjVijX0kKScSjrQ9RiqbhulKt26Jcs0ub5ZfEOyzYDro+GdefvVuea05plrFLoTsXFtCPFyfW4gG7t7UhxwSWMj9VDRdDqTznIL4oTLLczYmb0G69hRnpYLfdrzDgmQfWL2iBGfhO/Z5LRrM+kx7gjEwrtzETsslreLG2fndjWNTyhgiuJe4CmWTdxTyYUcLCe62hGo2m1vIWdA03/B5d3z0SnWTexZaIk3mZZe8OdmImorZaPx7IH0b3Muol9MaGwZzMwgWQJwgRyxr6aUOjJDM5EayVo5nEm3Ekc7mtO9DfZbhKvmIkJhXZm5KpjnHESTe30P4mP9eMVQ70V60PM1ISCMiOvYtuUIWQ6LYSoDroyQtQPvE551cG9cPinrbtjQsFdsiq66CTdKZio7YqO2iaQ+dc7Z3RM0N370uLOihu68CSDlbhYvQ0vVLG2JJG/vuRhskdzWtzUxen0i2mhqRg8xZIxiti6azxM9mhOCj8pjkh7XC9NFFOxVKrgjCXjiCjlf+FhsoUsHXooJYxJ2d0kzhRLWd0UixWRcv3QAzxcdvDK9msmYX6p/XYxxRP9ShsztUKBh8sO3qL4NCmoVe1ygWhiMj4ikqKpGsaqvMrDZQd3wZrsRYzOWHyCpkmQdft9Hi470PcoXQglRV1EkhB1HU+5f/U+SVIyjPdxTvNw2QGvqb8rAe0OLBFibsgN5w36cEAfMFDCfEFf43UDOvUHBfrO8XDZIfog0eYRChF/0NYItwr3cZcIYbVwkLbm9oQIkkb0RzeS4hZ3yQ6qak0mNYi/FdbtT2DgIIe2hbx2+FFv1lqhuko3o5Ip7vUPh2aD5vLYMzQgROgGmuAZEsdhPaM57xz25sT3ekkfXNmZILlpP8Zh/YdftN9VhR+2kISB83KzkOfmPcOrWMdQzv9MRlTBSZ+muLn/wKvrWSrFYWAZB/lZvtw3+KX8m3gc/0WvALIx9hZf7j/8in0KBl7hn5kBrwkf+petk/xzhBFG+N/I5f4DGFydvEIDpNwAAAAASUVORK5CYII=">-->
+								<!--<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAQ0SURBVGhD7VjPaxNBFA6CIh4FqT+plCYzW3Mp7U38dRDEg3ry5E0oFDxo/SMULHgobQ8K9iCKFBEvWj3Ug9gkm1YQ9OrBuwjW2trWWb9v8tJmdjc1SbOaQD54sJn33ve9mczOj0110EEH/xfG11ma/GxfmIJ6TJOf7YlgPqNNQf+m8Vma2w+YUg8DXwc0Pktze8HkvLTx1dpmR9Qa28TdPgh8NVXuxKapKXG3BwI/3VP5b5St1JbukbDWBwq+F+5E2eiTsNZGkFNHsdyuxnWCZn2IkfDWBVanSadwX3+nhdomJbw1YfK9hzHiv9yi1S2a04YYxkpa6wEFjocK/mHe9+6zhueQb1zSWgtmQR3ElFl2ivX1qLg55UZDvmXmiLs1EASpHRjhsVChP00u2yUh2CCzXWxzYpiDXAn5dzD+sSMmr86giCGcn+5g7j+DfcLzSmWBUuRdSdsA26JxesVykAucaBuiBrUkrTEEhb79Ju+dgF3lSwryaYzkBxSxFC6imlWbNnHTbyujZkmbNaAW1oTaWKNQxsMU9bU4wnoN4lWXV/ricuo11iqU8YDQdYyAiUveypiDEfyC/NmtjiGl44uetbGN6qBGodsappAZriYCks+wGRQyjpgR/OUX8DsbvOneLek1gznMtRzkIie5oRGrbQcrMyzptaH0juj1CJmvnwTzAzslrOkgt9WI6q6zJgmrD8bPXIntTEE9DT727ZKwpoGcljusx06gFglrDPgrL4M8cgjE3/y8mZ0pdQKcER21yhokbHsI8t4lEDpnqJKIftHIuxGGfVfIFeGHJrQlrDkwRe88/uLIHoAX9RXm9R4JqxvMtRwRXuxF0JSw5gJr91mMUmRjRNvrRjpjO8HcKN8StSQsGWCkTkFoMUb8poTUDObE8CxSQ0KShSlmjmM6OHdytF0Ud81gjsPBLy3gFnfyMHN9eysLsEUseN3irhnMifCAW9zJwxS8k444rrLiqhvMdbjALa7kwWOCI+6rOXHVDeY6XPUeQbYDjOKEI+6r++JyEBTVaewP72h8lmYHzHW59IS4kgcKe+uIF/UNcVkY3+tHQTOVMTbOHgi9fgmzYK4TA25xJQ+M4ldHXNZ8s9DXi+XzEYqpejynz8Yg1uYg1/GDm+2Jw8ylD1UKW/GCGoThWB89xlQzxkrOYMQHDZFLDngZz0WEYzbIssH3jRbno8XlUkPkkgOmxkhYOM5QII4y6jb3hdK+g+ca7/3UELnkgBf2QZx42VAsp8wY5v4BSdkA26zvL1OQGpKSHCA0HxamQRwXMDVVywdqxjC2lBPlgs1LaDKQD3GhT59chfS0yaU9CasZzLG5oVXOaiT54Y5LpiPo65dBXg+Iu2GQw3JVcsvynAh4W7Mi2LT4oUyamwZyktt2ptk3w0rw2J3Yra0C9jbawLWggw46qIZU6g9z2dGFDJAkjQAAAABJRU5ErkJggg==">-->
+								
+							</div>
+						</div>
+						<div style="width: 510px; height: 60px;">
+							<div style="font-family: '方正舒体'; font-size: 28px; margin-top: 15px; text-align: right; float: left;">评分：</div>
+							<div id="scores2" style="width: 300px; font-size: 40px; float: left; text-align: left; margin-top: 2px;">
+								<!--☆-->
+								
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="item1">
+				<div class="title"><span>收缩展开 菜单列表</span></div>
+				<div>
+					<p id="btn">输入法</p>
+					<ul id='ul_input' style="display: block;">
+						<li><a href="#">手写</a></li>
+						<li><a href="#">拼音</a></li>
+						<li><a href="#">关闭</a></li>
+					</ul>
+				</div>
+			</div>
+			<div class="item2">
+				<div class="title"><span>全选、不选、反选功能</span></div>
+				<div>
+					<label><input id="selectAll" type="checkbox" />全选/取消全选</label>
+					<label><input id="selectReverse" type="checkbox" />反选</label><br />
+					<table>
+						<tr>
+							<td><label><input type="checkbox" name="ability" />js</label></td>
+							<td><label><input type="checkbox" name="ability" />Bootstrap</label></td>
+							<td><label><input type="checkbox" name="ability" />easyUI</label></td>
+							<td><label><input type="checkbox" name="ability" />jQuery</label></td>
+						</tr>
+						<tr>
+							<td><label><input type="checkbox" name="ability" />flex</label></td>
+							<td><label><input type="checkbox" name="ability" />SSH</label></td>
+							<td><label><input type="checkbox" name="ability" />myBatis</label></td>
+							<td><label><input type="checkbox" name="ability" />springMVC</label></td>
+						</tr>
+					</table>
+				</div>
+			</div>
+			<div class="item1">
+				<div class="title"><span>Tab选项卡切换效果</span></div>
+				<div>
+					<div id="tabs">
+						<div class="active">百度</div>
+						<div>谷歌</div>
+						<div>新浪</div>
+					</div>
+					<div id="content" class="content">
+						<div id="boxStyle" onclick="testDiv1()" class="box" style="display: block;">baidu</div>
+						<div class="box">google</div>
+						<div class="box">sina</div>
+					</div>
+				</div>
+			</div>
+			<div class="item2">
+				<div class="title"><span>split()分割</span></div>
+				<div>
+					<input type="button" onclick="splitText()" value="split()分割字符串" />
+					<input type="button" onclick="resetText()" value="正常语句" />
+				</div>
+				字符串：<span id="split">my-favorite-movies-is-comedies.</span><br />
+				第一种：<span id="split1"></span><br />
+				第二种：<span id="split2"></span><br />
+				第三种：<span id="split3"></span><br />
+			</div>
+			<div class="item1">
+				<div class="title"><span>点击查看当前时间</span></div>
+				<a href="javascript: new Date().toLocaleTimeString();">点击我将新建一个文档，展示当前时间</a><br />
+				<a href="javascript: console.log(new Date().toLocaleTimeString());">点击我将在控制台显示当前时间</a><br /><br />
+				<a href="javascript: void new Date().toLocaleTimeString();">点击我不会网页跳转替换当前文档</a><br />
+				<a href="javascript: new Date().toLocaleTimeString();void 0;">点击我不会网页跳转替换当前文档</a>
+			</div>
+			<div class="item2">
+				<div class="title"><span>window对象</span></div>
+				<div>
+					<script type="text/javascript">
+						var myWindow;
+						function opinWin() {
+							myWindow=window.open('', 'MsgWindow', 'width=400,height=300');
+							myWindow=document.write("<p>窗口名称为："+myWindow.name+"</p>");
+						}
+
+						/**
+						 * window.opener属性表示打开当前窗口的父窗口。
+						 * 如果当前窗口没有父窗口（即直接在地址栏输入打开），则返回null。
+						 * 
+						 */
+//						var popup = window.open();
+//						if((pupup!==null) && !popup.closed) {
+//							window.open().opener ===window; // 会打开一个新窗口，然后返回true。
+//						}
+						/** 如果两个窗口之间不需要通信，建议将子窗口的opener属性显式设为null，
+						 *  这样可以减少一些安全隐患。
+						 */
+						var newWin = window.open('3DRose.html','newWindow','height=500,width=1000');
+						newWin.opener = null;
+					</script>
+					<input type="button" value="打开我的窗口" onclick="opinWin()" />
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

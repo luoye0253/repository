@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1" maximum-scale=1, user-scalable=no">
+		<meta charset="utf-8" />
+		<title>栅格系统</title>
+		<link rel="stylesheet" href="../../css/bootstrap.css" />
+	</head>
+	<body>
+		<!--
+			container-fluid		自适应宽度100%
+			container			固定宽度（适应响应式）
+								宽度>=1200
+								992=<宽度<1200
+								768<=宽度<992
+								宽度<768  auto手机 自适应
+			注意：这两个class不能放在一起，可以是兄弟关系，但不能是嵌套关系
+				如果不想让宽度随着屏幕而变化，可以给它一个!important来提升优先级，这样的话在所有尺寸下都是一个定值。
+		-->
+		<div class="container-fluid">
+			<div style="background: red;">div1</div>
+		</div>
+		<div class="container" style="background: green;">div2</div>
+		<div class="container" style="background: green; width: 1000px!important;">div3</div>
+		
+		<script src="../../js/jquery.js"></script>
+		<script src="../../js/bootstrap.js"></script>
+	</body>
+</html>

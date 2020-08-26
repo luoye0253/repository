@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    	<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>导航条的其他样式</title>
+		<!--<link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css">-->
+		<link rel="stylesheet" href="../css/bootstrap.css" />
+	</head>
+	<body style="padding-top: 50px; height: 2000px;">
+		<!--
+			navbar					导航条的基础样式
+			nav navbar-nav			导航条里菜单的固定样式组合class
+			navbar-default			导航条的默认样式
+			navbar-inverse			导航条的样式为黑色
+			navbar-static-top		直角样式的导航条
+			navbar-fixed-top		导航条定位到顶部
+			navbar-fixed-bottom		导航条定位到底部，不会随滚动条的滚动而走
+			navbar-header			导航的头部，一般情况下来放logo
+			navbar-brand			用来放logo的，需要配合navbar-header
+		-->
+		
+		<!--一般情况下都会把nav标签包在container的外面-->
+		<nav class="navbar navbar-default">
+			<div class="container">
+				<div class="navbar-header"><a href="#" class="navbar-brand">logo</a></div>
+				<ul class="nav navbar-nav">
+					<li class="active"><a href="#">html</a></li>
+					<li><a href="#">css</a></li>
+					<li><a href="#">js</a></li>
+				</ul>
+			</div>
+		</nav>
+		
+		<!--有链接与文字的导航条-->
+		<nav class="navbar navbar-default">
+			<div class="container">
+				<div class="navbar-header"><a href="#" class="navbar-brand">logo</a></div>
+				<!--navbar-left表示内容左对齐-->
+				<ul class="nav navbar-nav navbar-left">
+					<li class="active"><a href="#">html</a></li>
+					<li><a href="#">css</a></li>
+					<li><a href="#">js</a></li>
+				</ul>
+				
+				<!--如果导航里有文字和链接，需要加上一个navbar-text的class-->
+				<a href="#" class="navbar-link navbar-text">链接</a>
+				<p class="navbar-text">这里是一段文字</p>
+				
+				<!--navbar-right表示内容右对齐-->
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="#">登录</a></li>
+					<li><a href="#">注册</a></li>
+				</ul>
+			</div>
+		</nav>
+		
+		<!--有表单的导航条-->
+		<nav class="navbar navbar-default">
+			<div class="container">
+				<div class="navbar-header">
+					<a href="#" class="navbar-brand">logo</a>
+				</div>
+				<!--navbar-left表示内容左对齐-->
+				<ul class="nav navbar-nav navbar-left">
+					<li class="active"><a href="#">html</a></li>
+					<li><a href="#">css</a></li>
+					<li><a href="#">js</a></li>
+				</ul>
+				
+				<!--如果导航里只有一个按钮，那给它加一个navbar-btn的class-->
+				<button class="btn btn-default navbar-btn">搜索</button>
+				
+				<!--
+					如果导航里有form，那就需要给form添加一个navbar-form，
+					想让它们在一行显示，就需要添加一个navbar-left的class
+				-->
+				<form action="http://www.baidu.com" class="navbar-form navbar-left">
+					<input type="text" class="form-control" />
+					<button class="btn btn-default">搜索</button>
+				</form>
+			</div>
+		</nav>
+		
+		<!--<script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
+		<script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>-->
+		<script type="text/javascript" src="../js/jquery.js" ></script>
+		<script type="text/javascript" src="../js/bootstrap.js" ></script>
+	</body>
+</html>
